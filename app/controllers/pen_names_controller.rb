@@ -1,0 +1,2 @@
+class PenNamesController < ApplicationController
+end

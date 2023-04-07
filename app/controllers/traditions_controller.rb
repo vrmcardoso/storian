@@ -1,0 +1,2 @@
+class TraditionsController < ApplicationController
+end
