@@ -70,3 +70,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'devise'
+gem 'pundit'
+gem 'cloudinary'
+gem 'mini_magick'
+gem 'tinymce-rails'
+gem 'kaminari'
+gem 'bootstrap', '~> 5.0'
+gem 'webpacker', '~> 5.0'
