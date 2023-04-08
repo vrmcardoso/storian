@@ -1,4 +1,5 @@
 import 'bootstrap';
 import '../stylesheets/bootstrap.scss';
 
-import 'components/navbar';
+import Rails from '@rails/ujs';
+Rails.start();
