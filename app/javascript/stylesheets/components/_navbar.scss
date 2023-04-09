@@ -1,15 +1,37 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: transparent;
+.navbar {
+  background-color: transparent;
+  margin-right: 20px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 100px;
-  border-radius: 10%;
+.dropdown-menu {
+  background-color: white;
+  left: auto;
+  right: 10px;
+  top: 50px;
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.nav-item.dropdown {
+  margin-top: 5px;
+  position: relative;
+}
+
+.logo-image {
+  max-width: 150px;
+  padding-left: 10px;
 }
 
 .nav-link {

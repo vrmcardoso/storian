@@ -1,0 +1,62 @@
+.form-title {
+  color: #007bff;
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.field input[type="submit"] {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #FB9A2C;
+  transition: background 0.3s ease;
+}
+
+.field input[type="submit"]:hover {
+  background: #FB8500;
+  color: white;
+}
+
+.actions {
+  text-align: center;
+}
+
+.devise-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.devise-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.devise-links a:hover {
+  color: #0069d9;
+}
