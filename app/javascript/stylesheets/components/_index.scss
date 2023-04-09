@@ -62,7 +62,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997195/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_human_castle_21ad02b7-5fe4-419c-aecd-f380a43bee62_nqkd5t.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997208/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_c0e82bc2-0ad0-4ff2-887f-2aa68f0250a5_e5mnhq.png');
 }
 
 .background-9 {
@@ -72,29 +72,31 @@
   background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997216/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_dark_forest_85fb5d03-cba5-4213-afb8-a6b329ec5806_mbvnet.png');
 }
 
-.background-10 {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997208/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_c0e82bc2-0ad0-4ff2-887f-2aa68f0250a5_e5mnhq.png');
-}
-
 .banner-title {
-  background-color: rgba(0, 0, 0, 0.5);
   padding: 1rem;
-
-  margin-top: 20rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
+  margin-top: 10rem;
   text-align: center;
   color: #FBFAF8;
-  font-family: 'Playfair Display', serif;
+  font-family: 'eb garamond', serif;
+}
+
+h1 {
+  margin-bottom: 15px;
+  color: #FB8500;
+}
+
+h1, h2, h3, h4, h5 {
+
+}
+
+.banner-copy {
+  max-width: 60%;
+  padding-top: 10px;
+  margin: 0 auto;
 }
 
 .banner-copy p {
-  max-width: 75%;
   text-align: center;
   color: #FBFAF8;
-  font-family: 'Roboto', sans-serif;
+
 }

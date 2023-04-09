@@ -11,7 +11,7 @@ export default class extends Controller {
       return;
     }
 
-    this.backgrounds = ["background-1", "background-2", "background-3", "background-4", "background-5", "background-6", "background-7", "background-8", "background-9", "backgroun-10"];
+    this.backgrounds = ["background-1", "background-2", "background-3", "background-4", "background-5", "background-6", "background-7", "background-8", "background-9"];
     this.currentBackground = 0;
     this.changeBackground();
     this.interval = setInterval(() => this.changeBackground(), 10000);
