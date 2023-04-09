@@ -1,0 +1,100 @@
+.background-carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  min-height: 100vh;
+  transition: background-image 1s ease-in-out;
+}
+
+.background-1 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680993075/Storian/illustrations/landscapes/vrmcardoso_A_landscape_of_a_fantasy_world_with_mountains_in_the_2b694791-3e9a-4d0e-af32-caa7be5f282b_zbnpq2.png');
+}
+
+.background-2 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680993079/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_elven_deities_temple_6de0fff4-791a-4c52-9e24-366083f3daae_pb25sl.png');
+}
+
+.background-3 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680993083/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_human_castle_0ea41573-7981-4841-9588-82bcec34fbff_csdlb2.png');
+}
+
+.background-4 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997190/Storian/illustrations/landscapes/vrmcardoso_A_fantasy_illustrations_of_a_landscape_33974d56-389f-450e-b4b1-09962704e2b3_wz3gh5.png');
+}
+
+.background-5 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997204/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_landscape_with_a_great_b_73cfeccb-f283-4ee0-9bfa-895899273ba0_dntwy1.png');
+}
+
+.background-6 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997212/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_113514fa-2fcc-4b1c-961f-2cba83e94494_xvsmkd.png');
+}
+
+.background-7 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997200/Storian/illustrations/landscapes/vrmcardoso_A_landscape_of_a_fantasy_world_with_mountains_in_the_3d568574-a4d4-4eee-9f3e-73750a66739c_iaokrp.png');
+}
+
+.background-8 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997195/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_human_castle_21ad02b7-5fe4-419c-aecd-f380a43bee62_nqkd5t.png');
+}
+
+.background-9 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997216/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_dark_forest_85fb5d03-cba5-4213-afb8-a6b329ec5806_mbvnet.png');
+}
+
+.background-10 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997208/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_c0e82bc2-0ad0-4ff2-887f-2aa68f0250a5_e5mnhq.png');
+}
+
+.banner-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+
+  margin-top: 20rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  color: #FBFAF8;
+  font-family: 'Playfair Display', serif;
+}
+
+.banner-copy p {
+  max-width: 75%;
+  text-align: center;
+  color: #FBFAF8;
+  font-family: 'Roboto', sans-serif;
+}
