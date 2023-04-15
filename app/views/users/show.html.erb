@@ -1,0 +1,15 @@
+<h3 class="title">Your Worlds</h3>
+<div class="main-worlds-container">
+  <div class="worlds-container">
+    <% @worlds.each do |world| %>
+      <div class="world-card" onclick="window.location='<%= world_path(world) %>'">
+        <div class="world-thumbnail" style="background-image: url('<%= url_for(world.photo) %>');"></div>
+        <div class="world-name"><%= world.name %></div>
+        <div class="short-description"><%= world.description %></div>
+      </div>
+    <% end %>
+    <div class="world-card add-world" onclick="window.location='<%= new_world_path %>'">
+      <span class="plus-sign">+</span>
+    </div>
+  </div>
+</div>

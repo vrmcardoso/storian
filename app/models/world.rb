@@ -12,4 +12,5 @@ class World < ApplicationRecord
   has_many :historical_timelines
   has_many :locations
   has_many :religions
+  has_one_attached :photo
 end

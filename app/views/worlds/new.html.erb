@@ -1,0 +1,23 @@
+<h3 class="form-title">Create a new World</h3>
+<div class="form-container">
+  <%= form_with model: @world, local: true do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :photo %>
+      <%= form.file_field :photo %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

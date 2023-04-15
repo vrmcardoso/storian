@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -1000;
   min-height: 100vh;
   transition: background-image 1s ease-in-out;
 }
@@ -27,45 +27,73 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680993083/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_human_castle_0ea41573-7981-4841-9588-82bcec34fbff_csdlb2.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1681067001/Storian/illustrations/landscapes/vrmcardoso_a_scifi_digital_art_image_of_a_futuristic_city_on_an_4dff7b0d-0401-404c-b528-fb1601596cde_owmu14.png');
 }
 
 .background-4 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997190/Storian/illustrations/landscapes/vrmcardoso_A_fantasy_illustrations_of_a_landscape_33974d56-389f-450e-b4b1-09962704e2b3_wz3gh5.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680993083/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_human_castle_0ea41573-7981-4841-9588-82bcec34fbff_csdlb2.png');
 }
 
 .background-5 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997204/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_landscape_with_a_great_b_73cfeccb-f283-4ee0-9bfa-895899273ba0_dntwy1.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997190/Storian/illustrations/landscapes/vrmcardoso_A_fantasy_illustrations_of_a_landscape_33974d56-389f-450e-b4b1-09962704e2b3_wz3gh5.png');
 }
 
 .background-6 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997212/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_113514fa-2fcc-4b1c-961f-2cba83e94494_xvsmkd.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997204/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_a_landscape_with_a_great_b_73cfeccb-f283-4ee0-9bfa-895899273ba0_dntwy1.png');
 }
 
 .background-7 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997200/Storian/illustrations/landscapes/vrmcardoso_A_landscape_of_a_fantasy_world_with_mountains_in_the_3d568574-a4d4-4eee-9f3e-73750a66739c_iaokrp.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1681067012/Storian/illustrations/landscapes/vrmcardoso_a_scifi_digital_art_image_of_a_lush_alien_planet_84f5db2f-d814-485d-a6ae-0def3d2d8e48_dozlqm.png');
 }
 
 .background-8 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997208/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_c0e82bc2-0ad0-4ff2-887f-2aa68f0250a5_e5mnhq.png');
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997212/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_113514fa-2fcc-4b1c-961f-2cba83e94494_xvsmkd.png');
 }
 
 .background-9 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1681067015/Storian/illustrations/landscapes/vrmcardoso_a_scifi_digital_art_image_of_a_futuristic_space_stat_80727661-67d5-4645-bfbc-54e3977b75a0_keaqcl.png');
+}
+
+.background-10 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997200/Storian/illustrations/landscapes/vrmcardoso_A_landscape_of_a_fantasy_world_with_mountains_in_the_3d568574-a4d4-4eee-9f3e-73750a66739c_iaokrp.png');
+}
+
+.background-11 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1681067005/Storian/illustrations/landscapes/vrmcardoso_a_scifi_digital_art_image_of_a_futuristic_city_on_an_041f62b4-7a7c-4590-82d5-8e7f3880e85c_i74ewc.png');
+}
+
+.background-12 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://res.cloudinary.com/dmndhddgf/image/upload/v1680997208/Storian/illustrations/landscapes/vrmcardoso_a_fantasy_illustration_of_an_ancient_ruin_c0e82bc2-0ad0-4ff2-887f-2aa68f0250a5_e5mnhq.png');
+}
+
+.background-13 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -74,25 +102,37 @@
 
 .banner-title {
   padding: 1rem;
-  margin-top: 10rem;
+  margin-top: 15rem;
   text-align: center;
   color: #FBFAF8;
-  font-family: 'eb garamond', serif;
+  font-family: 'open-sans', sans-serif;
+  letter-spacing: 2px;
 }
 
-h1 {
+.banner-title h1 {
   margin-bottom: 15px;
-  color: #FB8500;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #0099ff,
+    0 0 10px #0099ff,
+    0 0 15px #0099ff,
+    0 0 20px #0099ff;
+
 }
 
-h1, h2, h3, h4, h5 {
-
+.banner-title h3 {
+  margin-top: 8rem;
 }
 
-.banner-copy {
+.banner-buttons a {
+  margin: 5px;
+}
+
+.banner-buttons {
   max-width: 60%;
   padding-top: 10px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .banner-copy p {

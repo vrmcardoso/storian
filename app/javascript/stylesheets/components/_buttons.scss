@@ -16,12 +16,12 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #0045e0;
+  background: #670BFF;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #003FCC;
+  background: #4D04C4;
   color: white;
 }
 
@@ -38,4 +38,34 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+.banner-buttons {
+  .btn-ghost {
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    font-weight: 400;
+    padding: 8px 24px;
+    border-radius: 50px;
+    transition: background 0.4s ease;
+  }
+
+  .btn-ghost:hover {
+    color: #3F73E6;
+    border: 2px solid #3F73E6;
+  }
+
+  .btn-flat {
+    color: white;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background: #0045E0;
+    transition: background 0.3s ease;
+  }
+
+  .btn-flat:hover {
+    background: #0039B9;
+    color: white;
+  }
+
 }
