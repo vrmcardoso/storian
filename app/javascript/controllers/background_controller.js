@@ -3,9 +3,20 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   initialize() {
     this.changeBackground = this.changeBackground.bind(this);
+    this.startCarousel = this.startCarousel.bind(this);
   }
 
   connect() {
+    this.startCarousel();
+    document.addEventListener("turbo:load", this.startCarousel);
+  }
+
+  disconnect() {
+    document.removeEventListener("turbo:load", this.startCarousel);
+    clearInterval(this.interval);
+  }
+
+  startCarousel() {
     this.carouselElement = document.querySelector(".background-carousel");
 
     if (!this.carouselElement) {
@@ -29,11 +40,8 @@ export default class extends Controller {
     ];
     this.currentBackground = 0;
     this.changeBackground();
+    clearInterval(this.interval); // Clear any existing interval to avoid duplication
     this.interval = setInterval(this.changeBackground, 10000);
-  }
-
-  disconnect() {
-    clearInterval(this.interval);
   }
 
   changeBackground() {

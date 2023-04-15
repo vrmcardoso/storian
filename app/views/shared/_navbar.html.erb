@@ -1,38 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dmndhddgf/image/upload/v1680995216/Storian/Storian_logo_transparent_hbhq4v.png", alt: "Your Logo", class: "logo-image" %>
+      <%= image_tag "https://res.cloudinary.com/dmndhddgf/image/upload/v1680995216/Storian/Storian_logo_transparent_hbhq4v.png" %>
     <% end %>
 
-
-    <button class="navbar-toggler" type="button" data-controller="dropdown" data-action="click->dropdown#toggle" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item dropdown" data-controller="dropdown">
-            <% if current_user.profile_photo.present? %>
-              <%= image_tag current_user.profile_photo, class: "avatar dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false, data: { action: "click->dropdown#toggle" } %>
+          <li class="nav-item active">
+            <% if current_page?(root_path) %>
+              <%= link_to "Profile", user_profile_path(current_user), class: "nav-link nav-link-white" %>
+            <% elsif current_page?(user_profile_path(current_user))%>
             <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false, data: { action: "click->dropdown#toggle" } %>
+              <%= link_to "Profile", user_profile_path(current_user), class: "nav-link" %>
             <% end %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" data-dropdown-target="menu" data-turbolinks-permanent>
-            <%= link_to "Profile", user_profile_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My Worlds", user_worlds_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <% if current_user.profile_photo.present?  %>
+              <%= image_tag current_user.profile_photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/dmndhddgf/image/upload/v1681586497/Storian/my-profile-icon-blank-profile-image-circle_tluv5p.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <li class="nav-item"-->
+            <%= link_to "Login", new_user_session_path, class: "nav-link nav-link-white" %>
+          </li-->
         <% end %>
       </ul>
     </div>
   </div>
-</nav>
+</div>

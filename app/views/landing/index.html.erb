@@ -2,11 +2,13 @@
   <div class="banner-title">
     <h1>UNLEASH YOUR IMAGINATION WITH STORIAN</h1>
     <h3>The Ultimate Worldbuilding App for Fantasy & Sci-Fi Authors</h2>
-    <h5>Craft intricate worlds, unforgettable characters, and immersive histories in one powerful tool</h4>
+    <h5>Craft intricate worlds filled with unforgetable characters, magical places, and unique ideas in one powerful tool</h4>
   </div>
   <div class="banner-buttons">
     <a class="btn btn-ghost" href=<%=landing_learn_more_path%>>Learn more</a>
-    <a class="btn btn-flat" href=<%=new_user_registration_path%>>Sign up</a>
+    <% unless user_signed_in? %>
+      <a class="btn btn-flat" href=<%=new_user_registration_path%>>Sign up</a>
+    <% end %>
   </div>
 </div>
 

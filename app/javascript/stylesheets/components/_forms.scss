@@ -1,6 +1,7 @@
 .form-title {
   color: #007bff;
   text-align: center;
+  padding: 10px;
 }
 
 .form-container {
@@ -8,11 +9,12 @@
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  background-color: white;
 }
 
 .field label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   font-weight: bold;
 }
 
@@ -25,7 +27,7 @@
   border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .field input[type="submit"] {
@@ -39,6 +41,12 @@
 .field input[type="submit"]:hover {
   background: #FB8500;
   color: white;
+}
+
+.field-check-box {
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 5px;
 }
 
 .actions {

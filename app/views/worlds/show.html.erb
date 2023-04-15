@@ -1,0 +1,32 @@
+<div class="world-show-container">
+  <div class="world-sidebar">
+    <%= link_to "Maps", world_maps_path(@world), class: "nav-item" %>
+    <%= link_to "Races", world_races_path(@world), class: "nav-item" %>
+    <%= link_to "Nations", world_nations_path(@world), class: "nav-item" %>
+    <%= link_to "Religions", world_religions_path(@world), class: "nav-item" %>
+    <%= link_to "Traditions", world_traditions_path(@world), class: "nav-item" %>
+    <%= link_to "Magic Systems", world_magic_systems_path(@world), class: "nav-item" %>
+    <%= link_to "Locations", world_locations_path(@world), class: "nav-item" %>
+    <%= link_to "Languages", world_languages_path(@world), class: "nav-item" %>
+    <%= link_to "Characters", world_characters_path(@world), class: "nav-item" %>
+    <%= link_to "Timelines", world_historical_timelines_path(@world), class: "nav-item" %>
+    <%= link_to "Series", world_series_index_path(@world), class: "nav-item" %>
+    <%= link_to "Books", world_books_path(@world), class: "nav-item" %>
+  </div>
+
+  <div class="world-main">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= url_for(@world.photo) %>')";>
+      <div class="container">
+        <h1><strong><%= @world.name %></strong></h1>
+        <%= link_to "Edit Photo", edit_world_path(@world), class: "edit-photo-btn" %>
+      </div>
+    </div>
+
+    <div class="description-container">
+      <div class="world-description">
+        <p><%= @world.description %></p>
+      </div>
+      <%= link_to "Edit Description", edit_world_path(@world), class: "edit-description-btn" %>
+    </div>
+  </div>
+</div>
