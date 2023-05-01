@@ -5,6 +5,9 @@ class WorldsController < ApplicationController
 
   def show
     @world = World.find(params[:id])
+    @series = @world.series
+    @books = @world.books
+    @books = @books.reject { |book| book.series.present? }
   end
 
   def new

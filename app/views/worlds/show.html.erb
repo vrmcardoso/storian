@@ -1,18 +1,5 @@
 <div class="world-show-container">
-  <div class="world-sidebar">
-    <%= link_to "Maps", world_maps_path(@world), class: "nav-item" %>
-    <%= link_to "Races", world_races_path(@world), class: "nav-item" %>
-    <%= link_to "Nations", world_nations_path(@world), class: "nav-item" %>
-    <%= link_to "Religions", world_religions_path(@world), class: "nav-item" %>
-    <%= link_to "Traditions", world_traditions_path(@world), class: "nav-item" %>
-    <%= link_to "Magic Systems", world_magic_systems_path(@world), class: "nav-item" %>
-    <%= link_to "Locations", world_locations_path(@world), class: "nav-item" %>
-    <%= link_to "Languages", world_languages_path(@world), class: "nav-item" %>
-    <%= link_to "Characters", world_characters_path(@world), class: "nav-item" %>
-    <%= link_to "Timelines", world_historical_timelines_path(@world), class: "nav-item" %>
-    <%= link_to "Series", world_series_index_path(@world), class: "nav-item" %>
-    <%= link_to "Books", world_books_path(@world), class: "nav-item" %>
-  </div>
+  <%= render "shared/sidenav" %>
 
   <div class="world-main">
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= url_for(@world.photo) %>')";>
@@ -23,10 +10,45 @@
     </div>
 
     <div class="description-container">
-      <div class="world-description">
+      <div class="book-pen-name">
         <p><%= @world.description %></p>
+        <%= link_to "Edit Description", edit_world_path(@world), class: "edit-description-btn" %>
       </div>
-      <%= link_to "Edit Description", edit_world_path(@world), class: "edit-description-btn" %>
+    </div>
+
+    <div>
+      <h3 class="title mt-3">Series in the World of <%= @world.name %></h3>
+      <div class="worlds-series-container">
+        <% @series.each do |series| %>
+          <div class="series-card" onclick="window.location='<%= series_path(series) %>'">
+            <div class="series-name"><%= series.name %></div>
+            <div class="series-slider"><% series.books.each_with_index do |book, index| %>
+              <% break if index > 2 %>
+                <div class="series-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <div class="series-card add-series" onclick="window.location='<%= new_user_series_path(current_user) %>'">
+          <span class="plus-sign">+</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="title mt-3">Stand-Alone Books in the World of <%= @world.name %></h3>
+      <div class="worlds-series-container">
+        <% @books.each do |book| %>
+          <div class="book-card" onclick="window.location='<%= book_path(book) %>'">
+            <div class="book-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+            <div class="book-name"><%= book.title %></div>
+            <div class="short-description"><%= book.description %></div>
+          </div>
+        <% end %>
+        <div class="book-card add-book" onclick="window.location='<%= new_user_book_path(current_user) %>'">
+          <span class="plus-sign">+</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

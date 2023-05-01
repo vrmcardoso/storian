@@ -1,0 +1,23 @@
+<h3 class="form-title">Edit World</h3>
+<div class="form-container">
+  <%= form_with model: @book, local: true, url: book_path(params[:id]), method: :patch do |form| %>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :cover %>
+      <%= form.file_field :cover %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Update" %>
+    </div>
+  <% end %>
+</div>

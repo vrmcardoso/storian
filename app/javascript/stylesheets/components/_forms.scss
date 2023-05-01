@@ -10,6 +10,7 @@
   align-items: center;
   margin-top: 50px;
   background-color: white;
+  margin-bottom: 10px;
 }
 
 .field label {
@@ -67,4 +68,10 @@
 
 .devise-links a:hover {
   color: #0069d9;
+}
+
+.small-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }

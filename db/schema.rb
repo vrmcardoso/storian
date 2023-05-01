@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_15_150956) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_22_163437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,14 +53,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_150956) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.string "bookable_type", null: false
-    t.bigint "bookable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "pen_name_id", null: false
     t.text "description"
-    t.index ["bookable_type", "bookable_id"], name: "index_books_on_bookable"
+    t.bigint "world_id"
+    t.bigint "series_id"
     t.index ["pen_name_id"], name: "index_books_on_pen_name_id"
+    t.index ["series_id"], name: "index_books_on_series_id"
+    t.index ["world_id"], name: "index_books_on_world_id"
   end
 
   create_table "character_languages", force: :cascade do |t|
@@ -279,6 +280,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_15_150956) do
   add_foreign_key "book_characters", "books"
   add_foreign_key "book_characters", "characters"
   add_foreign_key "books", "pen_names"
+  add_foreign_key "books", "series"
+  add_foreign_key "books", "worlds"
   add_foreign_key "character_languages", "characters"
   add_foreign_key "character_languages", "languages"
   add_foreign_key "characters", "locations", column: "place_of_birth_id"

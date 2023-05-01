@@ -1,0 +1,35 @@
+.sidebar {
+  width: 200px;
+  background-color: #4a89dc;
+  padding: 1rem;
+  min-height: 100vh;
+  margin-right: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+
+  .nav-item {
+    display: block;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #3b75c3;
+    }
+  }
+
+  .back-link {
+    font-weight: bold;
+    color: #3b75c3;
+    background-color: #f1f1f1;
+
+    &:hover {
+      background-color: #e1e1e1;
+    }
+  }
+
+  .nav-item.active {
+    background-color: #f1f1f1; /* Change this color to your desired highlight color */
+  }
+
+}

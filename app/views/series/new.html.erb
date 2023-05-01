@@ -1,0 +1,18 @@
+<h3 class="form-title">Create a new Series</h3>
+<div class="form-container">
+  <%= form_with model: @series, url: user_series_index_path(@user), local: true do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= form.label :world_id, "Pen Name" %>
+        <%= form.select :world_id, @worlds.map { |world| [world.name, world.id] }, prompt: "Select a World" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
