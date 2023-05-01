@@ -8,6 +8,10 @@
 @import "components/worlds";
 @import "components/footer";
 @import "components/banner";
+@import "components/series";
+@import "components/books";
+@import "components/dashboard";
+@import "components/sidebar";
 
 .main-container {
   background-color: #DCE4F5;
@@ -17,7 +21,7 @@
 
 .title {
   text-align: center;
-  padding: 10px;
+  padding-bottom: 10px;
 }
 
 .form-container {

@@ -2,6 +2,7 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
   initialize() {
+    console.log("Background controller initialized");
     this.changeBackground = this.changeBackground.bind(this);
     this.startCarousel = this.startCarousel.bind(this);
   }
@@ -53,4 +54,3 @@ export default class extends Controller {
     );
   }
 }
-

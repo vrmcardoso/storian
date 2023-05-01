@@ -11,14 +11,35 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <% if current_page?(root_path) %>
-              <%= link_to "Profile", user_profile_path(current_user), class: "nav-link nav-link-white" %>
-            <% elsif current_page?(user_profile_path(current_user))%>
-            <% else %>
-              <%= link_to "Profile", user_profile_path(current_user), class: "nav-link" %>
-            <% end %>
-          </li>
+          <% if current_page?(root_path) %>
+            <li class="nav-item active">
+              <%= link_to "Dashboard", user_dashboard_path(current_user), class: "nav-link nav-link-white" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Series", world_series_index_path(current_user), class: "nav-link nav-link-white" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Books", user_books_path(current_user), class: "nav-link nav-link-white" %>
+            </li>
+          <% elsif current_page?(user_dashboard_path(current_user))%>
+            <li class="nav-item active">
+              <%= link_to "Series", world_series_index_path(current_user), class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Books", user_books_path(current_user), class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to "Dashboard", user_dashboard_path(current_user), class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Series", world_series_index_path(current_user), class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Books", user_books_path(current_user), class: "nav-link" %>
+            </li>
+          <% end %>
+
 
           <li class="nav-item dropdown">
             <% if current_user.profile_photo.present?  %>
@@ -27,7 +48,7 @@
               <%= image_tag "https://res.cloudinary.com/dmndhddgf/image/upload/v1681586497/Storian/my-profile-icon-blank-profile-image-circle_tluv5p.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>

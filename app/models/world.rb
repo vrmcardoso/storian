@@ -3,7 +3,7 @@ class World < ApplicationRecord
   has_many :maps
   has_many :races
   has_many :nations
-  has_many :books, as: :bookable
+  has_many :books
   has_many :series
   has_many :languages
   has_many :traditions

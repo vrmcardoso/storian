@@ -1,0 +1,74 @@
+<% if @series.present? %>
+  <h3 class="form-title">Create a new Book in the series: <%= @series.name %></h3>
+    <div class="form-container">
+      <%= form_with model: [@series, @book], local: true do |form| %>
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+
+
+        <div class="field">
+          <%= form.label :pen_name_id, "Pen Name" %>
+          <%= form.select :pen_name_id, @pen_names.map { |pen_name| [pen_name.name, pen_name.id] }, prompt: "Select a Pen Name" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :cover %>
+          <%= form.file_field :cover %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <h3 class="form-title">Create a new Book</h3>
+    <div class="form-container" data-controller="book-form" data-book-form-user-id="<%= current_user.id %>">
+      <%= form_with model: [@user, @book], local: true do |form| %>
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+
+        <div class="field">
+          <%= form.label :pen_name_id, "Pen Name" %>
+          <%= form.select :pen_name_id, @pen_names.map { |pen_name| [pen_name.name, pen_name.id] }, prompt: "Select a Pen Name" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :world_id, "World Name" %>
+          <%= form.select :world_id, @worlds.map { |world| [world.name, world.id] }, {prompt: "Select a World"},
+          {data: {action: "change->book-form#updateSeriesSelect", book_form_target: "worldSelect"}} %>
+        </div>
+
+        <div class="field">
+          <%= form.label :series_id, "Series" %>
+          <%= form.select :series_id, [], {prompt: "Select a World first"}, {class: 'series-select',
+          data: {book_form_target: "seriesSelect"}, disabled: true} %>
+        </div>
+
+        <div class="field">
+          <%= form.label :cover %>
+          <%= form.file_field :cover %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+<% end %>

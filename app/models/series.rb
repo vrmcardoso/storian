@@ -1,4 +1,6 @@
 class Series < ApplicationRecord
   belongs_to :world
-  has_many :books, as: :bookable
+  belongs_to :user
+  has_many :books
+  has_one_attached :photo
 end

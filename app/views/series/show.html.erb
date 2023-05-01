@@ -1,0 +1,24 @@
+<div class="world-show-container">
+  <%= render "shared/sidenav" %>
+
+  <div class="world-main">
+    <div class="container">
+      <h1><strong><%= @series.name %></strong></h1>
+      <h2><strong><%= @series.world.name %></strong></h2>
+    </div>
+    <h3 class="title">Books in this series</h3>
+    <div class="books-container">
+      <% @books.each do |book| %>
+        <div class="book-card" onclick="window.location='<%= book_path(book) %>'">
+          <div class="book-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+          <div class="book-name"><%= book.title %></div>
+          <div class="short-description"><%= book.description %></div>
+        </div>
+      <% end %>
+      <div class="book-card add-book" onclick="window.location='<%= new_series_book_path(@series) %>'">
+        <span class="plus-sign">+</span>
+      </div>
+    </div>
+    <%= link_to "Edit Series", edit_series_path(@series), class: "edit-description-btn" %>
+  </div>
+</div>

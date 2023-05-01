@@ -13,4 +13,16 @@
 
 a.nav-link-white {
   color: white;
+
+  &:hover {
+    color: #4a89dc;
+  }
+}
+
+a.nav-link {
+  color: #8d99ae;
+
+  &:hover {
+    color: #4a89dc;
+  }
 }

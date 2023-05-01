@@ -1,0 +1,47 @@
+<div class="world-show-container">
+  <%= render "shared/sidenav" %>
+
+  <div class="book-show-container">
+    <div class="book-main">
+      <div class="book-show-content">
+        <div class="book-cover-container">
+
+          <div class="book-cover">
+            <img src="<%= url_for(@book.cover) %>" alt="Book Cover" class="cover-image">
+            <%= link_to "Edit Photo", edit_book_path(@book), class: "edit-photo-btn" %>
+          </div>
+        </div>
+        <div class="book-info-container">
+          <h1><strong><%= @book.title %></strong></h1>
+          <div class="book-info-cards">
+            <div class="book-world book-tiny-card" onclick="window.location='<%= world_path(@book.world) %>'">
+              <div class="books-world-thumbnail" style="background-image: url('<%= url_for(@book.world.photo) %>');"></div>
+              <p>World: <%= @book.world.name %></p>
+            </div>
+            <% if @book.series.present? %>
+              <div class="book-series book-tiny-card" onclick="window.location='<%= series_path(@book.series) %>'">
+                <div class="series-slider"><% @book.series.books.each_with_index do |book, index| %>
+                  <% break if index > 2 %>
+                  <div class="tiny-series-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+                <% end %>
+                </div>
+                <p>Series: <%= @book.series.name %></p>
+              </div>
+              <% else %>
+                <div class="book-series book-tiny-card">
+                  <h4>Stand-Alone Novel</h4>
+                </div>
+            <% end %>
+            <div class="book-tiny-card">
+              <h4>Pen Name: <%= @book.pen_name.name %></h4>
+            </div>
+          </div>
+          <div class="book-pen-name">
+            <p><%= @book.description %></p>
+            <%= link_to "Edit Description", edit_book_path(@book), class: "edit-description-btn" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<h1 class="title">Main Dashboard</h1>
+<div class="main-dashboard-container">
+  <h3 class="title">Your Worlds</h3>
+  <div class="worlds-container">
+    <% @worlds.each do |world| %>
+      <div class="world-card" onclick="window.location='<%= world_path(world) %>'">
+        <div class="world-thumbnail" style="background-image: url('<%= url_for(world.photo) %>');"></div>
+        <div class="world-name"><%= world.name %></div>
+        <div class="short-description"><%= world.description %></div>
+      </div>
+    <% end %>
+    <div class="world-card add-world" onclick="window.location='<%= new_world_path %>'">
+      <span class="plus-sign">+</span>
+    </div>
+  </div>
+</div>
+<div class="main-dashboard-container">
+  <h3 class="title">Your Series</h3>
+  <div class="series-container">
+    <% @series.each do |serie| %>
+      <div class="series-card" onclick="window.location='<%= series_path(serie) %>'">
+        <div class="series-name"><%= serie.name %></div>
+        <div class="series-slider"><% serie.books.each_with_index do |book, index| %>
+          <% break if index > 2 %>
+          <div class="series-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="series-card add-series" onclick="window.location='<%= new_user_series_path(current_user) %>'">
+      <span class="plus-sign">+</span>
+    </div>
+  </div>
+</div>
+<div class="main-dashboard-container">
+  <h3 class="title">Your Stand-alone Books</h3>
+  <div class="books-container">
+    <% @books.each do |book| %>
+      <div class="book-card" onclick="window.location='<%= book_path(book) %>'">
+        <div class="book-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+        <div class="book-name"><%= book.title %></div>
+        <div class="short-description"><%= book.description %></div>
+      </div>
+    <% end %>
+    <div class="book-card add-book" onclick="window.location='<%= new_user_book_path(current_user) %>'">
+      <span class="plus-sign">+</span>
+    </div>
+  </div>
+</div>

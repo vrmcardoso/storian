@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :pen_names
   has_many :worlds
+  has_many :books
   has_one_attached :profile_photo
 end
