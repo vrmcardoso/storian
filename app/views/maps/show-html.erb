@@ -1,0 +1,24 @@
+<div class="maps-show-container">
+  <%= render "shared/sidenav" %>
+
+  <div class="maps-main">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= url_for(@map.photo) %>')";>
+      <div class="container">
+        <h1><strong><%= @map.name %></strong></h1>
+        <%= link_to "Edit Photo", "#", class: "edit-photo-btn" %>
+      </div>
+    </div>
+
+    <div class="maps-grid-container">
+      <h3 class="title mt-3">Uploaded Maps</h3>
+      <div class="maps-grid">
+        <% @maps.each do |map| %>
+          <div class="map-thumbnail" style="background-image: url('<%= url_for(map.image) %>');" onclick="window.location='<%= map_path(map) %>'"></div>
+        <% end %>
+        <div class="map-thumbnail add-map" onclick="window.location='<%= new_user_map_path(current_user) %>'">
+          <span class="plus-sign">+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

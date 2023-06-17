@@ -4,7 +4,8 @@
   <div class="world-main">
     <div class="container">
       <h1><strong><%= @series.name %></strong></h1>
-      <h2><strong><%= @series.world.name %></strong></h2>
+      <h2><strong>by <%= @series.books[0].pen_name.name %></strong></h2>
+      <h2>From the world of <a href="<%= url_for(@series.world) %>"><%= @series.world.name %></a></h2>
     </div>
     <h3 class="title">Books in this series</h3>
     <div class="books-container">
@@ -12,7 +13,6 @@
         <div class="book-card" onclick="window.location='<%= book_path(book) %>'">
           <div class="book-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
           <div class="book-name"><%= book.title %></div>
-          <div class="short-description"><%= book.description %></div>
         </div>
       <% end %>
       <div class="book-card add-book" onclick="window.location='<%= new_series_book_path(@series) %>'">

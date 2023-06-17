@@ -1,7 +1,8 @@
 class SeriesController < ApplicationController
 
   def index
-    @series = Series.all
+    @worlds = current_user.worlds
+    
   end
 
   def show
