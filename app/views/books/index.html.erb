@@ -12,6 +12,9 @@
             <div class="book-world">World: <%= book.series.world.name %></div>
           </div>
         <% end %>
+        <div class="book-card add-book" onclick="window.location='<%= new_series_book_path(@series) %>'">
+          <span class="plus-sign">+</span>
+        </div>
       </div>
     </div>
   <% end %>
@@ -26,5 +29,8 @@
         <div class="book-world">World: <%= book.world.name %></div>
       </div>
     <% end %>
+    <div class="book-card add-book" onclick="window.location='<%= new_user_book_path(current_user) %>'">
+      <span class="plus-sign">+</span>
+    </div>
   </div>
 </div>

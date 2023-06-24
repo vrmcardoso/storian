@@ -7,7 +7,7 @@
     </div>
 
     <div class="field">
-        <%= form.label :world_id, "Pen Name" %>
+        <%= form.label :world_id, "World" %>
         <%= form.select :world_id, @worlds.map { |world| [world.name, world.id] }, prompt: "Select a World" %>
     </div>
 

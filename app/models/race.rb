@@ -8,4 +8,5 @@ class Race < ApplicationRecord
   has_many :religions, through: :religion_races
   has_many :tradition_races
   has_many :traditions, through: :tradition_races
+  has_one_attached :image
 end

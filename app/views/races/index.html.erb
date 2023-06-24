@@ -1,0 +1,19 @@
+<h1 class="title">The Races of <%= @world.name %></h1>
+
+<div class="serie-row-index">
+  <h2 class="serie-title-index">List of Races</h2>
+  <div class="books-container-index">
+    <% @races.each do |race| %>
+      <div class="book-card" onclick="window.location='<%= race_path(race) %>'">
+        <% if race.image.exists? %>
+          <div class="book-thumbnail" style="background-image: url('<%= url_for(race.image) %>');"></div>
+        <% end %>
+        <div class="book-name"><%= race.name %></div>
+        <div class="book-world">World: <%= race.world.name %></div>
+      </div>
+    <% end %>
+    <div class="book-card add-book" onclick="window.location='<%= new_world_race_path(@world) %>'">
+      <span class="plus-sign">+</span>
+    </div>
+  </div>
+</div>
