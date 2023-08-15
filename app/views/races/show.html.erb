@@ -7,12 +7,12 @@
         <div class="book-cover-container">
 
           <div class="book-cover">
-            <% if @race.image.exists? %>
-              <img src="<%= url_for(@book.cover) %>" alt="Race Image" class="cover-image">
+            <% if @race.image.attached? %>
+              <img src="<%= url_for(@race.image) %>" alt="Race Image" class="cover-image">
             <% else %>
-              <img src="https://res.cloudinary.com/dmndhddgf/image/upload/v1687034207/Storian/illustrations/Races/races_selection1_xom9ua.png" alt="Illustration of multiple fantasy races">
+              <img src="https://res.cloudinary.com/dmndhddgf/image/upload/v1687034207/Storian/illustrations/Races/races_selection1_xom9ua.png" alt="Illustration of multiple fantasy races" class="cover-image">
             <% end %>
-            <%= link_to "Edit Image", edit_race_path(@race), class: "edit-photo-btn" %>
+            <%= link_to "Edit Photo", "#", class: "edit-photo-btn", data: { controller: "photo-edit", action: "click->photo-edit#open" } %>
           </div>
         </div>
         <div class="book-info-container" data-controller="toggle-content">
@@ -35,6 +35,26 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Edit photo modal -->
+  <div id="photo-edit-modal" class="modal" data-controller="photo-edit">
+    <div class="modal-content">
+      <span class="close" data-action="click->photo-edit#close">&times;</span>
+      <h2 class="title">Edit Photo</h2>
+      <%= form_with(model: @race, url: race_path(@race), method: :patch, local: true, html: { class: "modal-form" }) do |f| %>
+        <% if @race.image.attached? %>
+          <img src="<%= url_for(@race.image) %>" alt="Current photo" class="current-photo">
+        <% else %>
+          <img src="https://res.cloudinary.com/dmndhddgf/image/upload/v1687034207/Storian/illustrations/Races/races_selection1_xom9ua.png" alt="Current photo" class="current-photo">
+        <% end %>
+        <div class="upload-form">
+          <%= f.label :photo, "Choose a new photo" %>
+          <%= f.file_field :image, direct_upload: true, accept: "image/*" %>
+        </div>
+        <%= f.submit "Update Photo", class: "btn btn-primary mt-3" %>
+      <% end %>
     </div>
   </div>
 </div>
