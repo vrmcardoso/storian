@@ -11,7 +11,7 @@
             <%= link_to "Edit Photo", edit_book_path(@book), class: "edit-photo-btn" %>
           </div>
         </div>
-        <div class="book-info-container">
+        <div class="book-info-container" data-controller="toggle-content">
           <h1><strong><%= @book.title %></strong></h1>
           <div class="book-info-cards">
             <div class="book-world book-tiny-card" onclick="window.location='<%= world_path(@book.world) %>'">
@@ -36,9 +36,21 @@
               <h4>Pen Name: <%= @book.pen_name.name %></h4>
             </div>
           </div>
+
           <div class="book-pen-name">
-            <p><%= @book.description %></p>
-            <%= link_to "Edit Description", edit_book_path(@book), class: "edit-description-btn" %>
+            <div data-toggle-content-target="display" class="content-display">
+              <%= sanitize @book.description %>
+              <%= link_to "Edit Description", "#", class: "edit-description-btn", data: { action: "toggle-content#toggle" } %>
+            </div>
+
+            <% text_area_tag :content, @book.description, :class => "tinymce d-none", :rows => 10, :cols => 120 %>
+
+            <div data-toggle-content-target="edit" class="content-edit d-none">
+              <%= form_with(model: @book, url: book_path(@book), method: :patch, local: true, html: { class: "content-edit-form", data: { action: "submit->toggle-content#toggle" } }) do |f| %>
+                <%= f.text_area :description, value: @book.description, rows: 10, :class => "description-editor tinymce", data: { controller: "tinymce", toggle_content_target: "showOnToggle" } %>
+                <%= f.submit "Save", class: "btn btn-primary mt-3", data: { action: "click->toggle-content#submit" } %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

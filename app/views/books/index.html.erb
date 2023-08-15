@@ -1,1 +1,36 @@
-<h1>My Books</h1>
+<h1 class="title">Your Books</h1>
+
+<% @series.each do |serie| %>
+  <% if serie.books.present? %>
+    <div class="serie-row-index">
+      <h2 class="serie-title-index">Series: <a href="<%= url_for(serie) %>"><%= serie.name %></a></h2>
+      <div class="books-container-index">
+        <% serie.books.each do |book| %>
+          <div class="book-card" onclick="window.location='<%= book_path(book) %>'">
+            <div class="book-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+            <div class="book-name"><%= book.title %></div>
+            <div class="book-world">World: <%= book.series.world.name %></div>
+          </div>
+        <% end %>
+        <div class="book-card add-book" onclick="window.location='<%= new_series_book_path(@series) %>'">
+          <span class="plus-sign">+</span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="serie-row-index">
+  <h2 class="serie-title-index">Stand-alone Books</h2>
+  <div class="books-container-index">
+    <% @standalone_books.each do |book| %>
+      <div class="book-card" onclick="window.location='<%= book_path(book) %>'">
+        <div class="book-thumbnail" style="background-image: url('<%= url_for(book.cover) %>');"></div>
+        <div class="book-name"><%= book.title %></div>
+        <div class="book-world">World: <%= book.world.name %></div>
+      </div>
+    <% end %>
+    <div class="book-card add-book" onclick="window.location='<%= new_user_book_path(current_user) %>'">
+      <span class="plus-sign">+</span>
+    </div>
+  </div>
+</div>

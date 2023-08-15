@@ -1,0 +1,60 @@
+<div class="world-show-container">
+  <%= render "shared/sidenav" %>
+
+  <div class="book-show-container">
+    <div class="book-main">
+      <div class="book-show-content">
+        <div class="book-cover-container">
+
+          <div class="book-cover">
+            <% if @race.image.attached? %>
+              <img src="<%= url_for(@race.image) %>" alt="Race Image" class="cover-image">
+            <% else %>
+              <img src="https://res.cloudinary.com/dmndhddgf/image/upload/v1687034207/Storian/illustrations/Races/races_selection1_xom9ua.png" alt="Illustration of multiple fantasy races" class="cover-image">
+            <% end %>
+            <%= link_to "Edit Photo", "#", class: "edit-photo-btn", data: { controller: "photo-edit", action: "click->photo-edit#open" } %>
+          </div>
+        </div>
+        <div class="book-info-container" data-controller="toggle-content">
+          <h1><strong><%= @race.name %></strong></h1>
+
+          <div class="book-pen-name">
+            <div data-toggle-content-target="display" class="content-display">
+              <%= sanitize @race.description %>
+              <%= link_to "Edit Description", "#", class: "edit-description-btn", data: { action: "toggle-content#toggle" } %>
+            </div>
+
+            <% text_area_tag :content, @race.description, :class => "tinymce d-none", :rows => 10, :cols => 120 %>
+
+            <div data-toggle-content-target="edit" class="content-edit d-none">
+              <%= form_with(model: @race, url: race_path(@race), method: :patch, local: true, html: { class: "content-edit-form", data: { action: "submit->toggle-content#toggle" } }) do |f| %>
+                <%= f.text_area :description, value: @race.description, rows: 10, :class => "description-editor tinymce", data: { controller: "tinymce", toggle_content_target: "showOnToggle" } %>
+                <%= f.submit "Save", class: "btn btn-primary mt-3", data: { action: "click->toggle-content#submit" } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit photo modal -->
+  <div id="photo-edit-modal" class="modal" data-controller="photo-edit">
+    <div class="modal-content">
+      <span class="close" data-action="click->photo-edit#close">&times;</span>
+      <h2 class="title">Edit Photo</h2>
+      <%= form_with(model: @race, url: race_path(@race), method: :patch, local: true, html: { class: "modal-form" }) do |f| %>
+        <% if @race.image.attached? %>
+          <img src="<%= url_for(@race.image) %>" alt="Current photo" class="current-photo">
+        <% else %>
+          <img src="https://res.cloudinary.com/dmndhddgf/image/upload/v1687034207/Storian/illustrations/Races/races_selection1_xom9ua.png" alt="Current photo" class="current-photo">
+        <% end %>
+        <div class="upload-form">
+          <%= f.label :photo, "Choose a new photo" %>
+          <%= f.file_field :image, direct_upload: true, accept: "image/*" %>
+        </div>
+        <%= f.submit "Update Photo", class: "btn btn-primary mt-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>

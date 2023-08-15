@@ -1,0 +1,48 @@
+<div class="maps-show-container" data-controller="map-modal">
+  <%= render "shared/sidenav" %>
+
+  <div class="maps-main">
+    <div class="title">
+      <h1><strong>Maps of the world of <%= @world.name %></strong></h1>
+    </div>
+
+    <div class="maps-grid-container">
+      <div class="maps-grid">
+        <% @maps.each do |map| %>
+          <div class="map-card">
+            <div class="map-thumbnail" style="background-image: url('<%= url_for(map.image) %>');"
+            data-action="click->map-modal#open" data-map-id="<%= map.id %>" data-map-url="<%= url_for(map.image) %>"></div>
+            <div class="map-name"><%= @world.name %></div>
+          </div>
+        <% end %>
+        <div class="map-card add-map" data-controller="add-map" data-action="click->add-map#open">
+          <span class="plus-sign">+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map image modal -->
+  <div id="map-image-modal" class="map-modal-container" data-map-modal-target="modal">
+    <div class="map-modal-content">
+      <span class="close" data-action="click->map-modal#close">&times;</span>
+      <img src="" alt="Map image" class="map-modal-image" data-map-modal-target="image">
+    </div>
+  </div>
+
+  <!-- Add map modal -->
+  <div id="add-map-modal" class="modal" data-controller="add-map">
+    <div class="modal-content">
+      <span class="close" data-action="click->add-map#close">&times;</span>
+      <h2 class="title">Add New Map</h2>
+      <%= form_with(model: Map.new, url: world_maps_path(@world), method: :post, local: true, html: { class: "modal-form" }) do |f| %>
+        <%= f.hidden_field :world_id, value: @world.id %>
+        <div class="upload-form">
+          <%= f.label :image, "Choose a map image" %>
+          <%= f.file_field :image, direct_upload: true, accept: "image/*" %>
+        </div>
+        <%= f.submit "Save Map", class: "btn btn-primary mt-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>

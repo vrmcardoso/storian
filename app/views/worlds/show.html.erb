@@ -5,14 +5,23 @@
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= url_for(@world.photo) %>')";>
       <div class="container">
         <h1><strong><%= @world.name %></strong></h1>
-        <%= link_to "Edit Photo", edit_world_path(@world), class: "edit-photo-btn" %>
+        <%= link_to "Edit Photo", "#", class: "edit-photo-btn", data: { controller: "photo-edit", action: "click->photo-edit#open" } %>
       </div>
     </div>
 
-    <div class="description-container">
+    <div class="description-container" data-controller="toggle-content">
       <div class="book-pen-name">
-        <p><%= @world.description %></p>
-        <%= link_to "Edit Description", edit_world_path(@world), class: "edit-description-btn" %>
+        <div data-toggle-content-target="display" class="content-display">
+          <%= sanitize @world.description %>
+          <%= link_to "Edit Description", "#", class: "edit-description-btn", data: { action: "toggle-content#toggle" } %>
+        </div>
+
+        <div data-toggle-content-target="edit" class="content-edit d-none">
+          <%= form_with(model: @world, url: world_path(@world), method: :patch, local: true, html: { class: "content-edit-form", data: { action: "submit->toggle-content#toggle" } }) do |f| %>
+            <%= f.text_area :description, value: @world.description, :rows => 50, :class => "description-editor tinymce", data: { controller: "tinymce", toggle_content_target: "showOnToggle" } %>
+            <%= f.submit "Save", class: "btn btn-primary mt-3", data: { action: "click->toggle-content#submit" } %>
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -49,6 +58,22 @@
           <span class="plus-sign">+</span>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Edit photo modal -->
+  <div id="photo-edit-modal" class="modal" data-controller="photo-edit">
+    <div class="modal-content">
+      <span class="close" data-action="click->photo-edit#close">&times;</span>
+      <h2 class="title">Edit Photo</h2>
+      <%= form_with(model: @world, url: world_path(@world), method: :patch, local: true, html: { class: "modal-form" }) do |f| %>
+        <img src="<%= url_for(@world.photo) %>" alt="Current photo" class="current-photo">
+        <div class="upload-form">
+          <%= f.label :photo, "Choose a new photo" %>
+          <%= f.file_field :photo, direct_upload: true, accept: "image/*" %>
+        </div>
+        <%= f.submit "Update Photo", class: "btn btn-primary mt-3" %>
+      <% end %>
     </div>
   </div>
 </div>

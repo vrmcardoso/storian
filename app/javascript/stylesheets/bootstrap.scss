@@ -12,6 +12,8 @@
 @import "components/books";
 @import "components/dashboard";
 @import "components/sidebar";
+@import "components/modals";
+@import "components/maps";
 
 .main-container {
   background-color: #DCE4F5;
@@ -75,4 +77,8 @@
   .form-container {
     padding: 1rem;
   }
+}
+
+.hidden {
+  display: none;
 }

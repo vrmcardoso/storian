@@ -3,6 +3,15 @@ class BooksController < ApplicationController
   def index
     @pen_names = current_user.pen_names
     @books = Book.all.select { |book| @pen_names.include?(book.pen_name) }
+    @worlds = current_user.worlds
+    @series = []
+    @worlds.each do |world|
+      world_series = world.series
+      world_series.each do |serie|
+        @series << serie
+      end
+    end
+    @standalone_books = @books.reject { |book| book.series.present? }
   end
 
   def show
@@ -24,11 +33,15 @@ class BooksController < ApplicationController
 
   def create
     @user = current_user
-    @world = World.find(params[:book][:world_id])
-    @series = Series.find(params[:book][:series_id]) if params[:book][:series_id].present?
+    if params[:series_id].present?
+      @series = Series.find(params[:series_id].to_i)
+      @world = @series.world
+    else
+      @world = World.find(params[:book][:world_id])
+    end
     @book = Book.new(book_params)
-    @book.world = @world
     @book.series = @series if @series.present?
+    @book.world = @world
 
     if @book.save
       redirect_to @book

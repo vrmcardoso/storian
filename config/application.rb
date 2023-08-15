@@ -10,6 +10,8 @@ module Storian
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.action_view.sanitized_allowed_tags = ['iframe', 'strong', 'em', 'a', 'p', 'br', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    config.action_view.sanitized_allowed_attributes = ['href', 'title', 'src', 'width', 'height', 'frameborder', 'allowfullscreen']
 
     # Configuration for the application, engines, and railties goes here.
     #
