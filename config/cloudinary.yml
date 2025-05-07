@@ -1,7 +1,7 @@
 development:
   cloud_name: dmndhddgf
-  api_key: 441468599427583
-  api_secret: YFs0xA-5zH0irPjc6LBH5XrUqws
+  api_key: ####
+  api_secret: #####
   secure: true
   cdn_subdomain: true
 
